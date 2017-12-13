@@ -127,32 +127,4 @@ public class MailSenderUtil {
 		return textBody;
 	}
 
-	public static void main(String[] args) throws Exception {
-		MailSenderBean mailSenderBean = new MailSenderBean();
-		// 抄送
-		String[] ccAddress = new String[] { "929968952@qq.com" };
-		mailSenderBean.setCcAddress(ccAddress);
-		String fromAddress = "yangwen@zhicall.cn";
-		mailSenderBean.setFromAddress(fromAddress);
-		mailSenderBean.setFromAddressTitle("（掌医项目组）苏州智康信息科技股份有限公司杭州分公司");
-		//
-		//
-		// 必须填写
-		//
-		//
-		mailSenderBean.setFromPassword("VeMsa4#z");
-		mailSenderBean.setSmtpHost("smtp.exmail.qq.com");
-		mailSenderBean.setSmtpPort("25");
-		mailSenderBean.setSubject("【紧急】系统异常告警");
-		String[] toAddress = new String[] { "yangwen@zhicall.cn" };
-		mailSenderBean.setToAddress(toAddress);
-
-		StringBuffer theMessage = new StringBuffer();
-		theMessage.append("<p>管理员，你好：<p><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;掌医系统发现异常状况，请各成员关注！<p>");
-		theMessage.append("<p color=#ff6600>监测时间：2015-10-22 10:00:00</p>");
-		theMessage.append("<p color=#ff6600>苏州智康信息科技股份有限公司杭州分公司 掌医项目组</p>");
-
-		mailSenderBean.setContent(theMessage.toString());
-		MailSenderUtil.send(mailSenderBean);
-	}
 }

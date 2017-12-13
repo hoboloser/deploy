@@ -63,7 +63,7 @@
 	<footer class="page-footer" style="padding-top: 0; margin-top: 40px;">
       <div class="footer-copyright">
         <div class="container">
-        	Copyright © 2017  lsnBin . All rights reserved. <a href="">GitHub</a>
+        	<a href="https://github.com/hoboloser/deploy">GitHub</a>
         </div>
       </div>
     </footer>
