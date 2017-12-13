@@ -17,9 +17,6 @@ import org.springframework.util.StringUtils;
 
 import com.zhicall.op.entity.LogFile;
 
-/**
- * Created by xxg on 15-8-18.
- */
 public class ShellUtil {
 
 	public static void parse(InputStream in, List<LogFile> list) {

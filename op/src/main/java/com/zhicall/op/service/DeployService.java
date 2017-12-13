@@ -5,6 +5,7 @@ import java.util.List;
 import java.util.Map;
 
 import com.zhicall.op.entity.Cmd;
+import com.zhicall.op.entity.LogFile;
 
 public interface DeployService {
 
@@ -47,8 +48,8 @@ public interface DeployService {
 
 	Cmd excute(String uuid, String string, String lastPath);
 
-	List showFile(String uuid);
+	List<LogFile> showFile(String uuid);
+	
 	
 	InputStream getInputStream(String type, String uuid, String file, String cmd, Map<String, Object> returnMap);
-	
 }

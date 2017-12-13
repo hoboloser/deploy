@@ -45,7 +45,7 @@ public class LogWebSocketHandle extends AbstractWebSocketHandler {
 		
 		Map<String, Object> returnMap = new HashMap<>();
 		
-		InputStream in = deployServiceFactory.getServiceInstance().getInputStream(type, uuid, file, cmd, returnMap );
+		InputStream in = deployServiceFactory.getServiceInstance(uuid).getInputStream(type, uuid, file, cmd, returnMap );
 		
 		LogThread thread = new LogThread(in, (Session) returnMap.get("session"), (Connection) returnMap.get("connection"), session);
 

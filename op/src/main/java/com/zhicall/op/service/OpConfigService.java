@@ -14,5 +14,11 @@ public interface OpConfigService {
 	List queryJob(String uuid);
 
 	void insertJob(DeployJob deployJob);
+
+	void insert(DeployInfo deployInfo);
+
+	void delete(String id);
+
+	void update(DeployInfo deployInfo);
 	
 }

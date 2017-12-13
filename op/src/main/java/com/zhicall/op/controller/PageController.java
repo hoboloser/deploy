@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.zhicall.op.entity.DeployInfo;
 import com.zhicall.op.entity.DeployJob;
 import com.zhicall.op.service.DeployServiceFactory;
 import com.zhicall.op.service.OpConfigService;
@@ -60,6 +61,18 @@ public class PageController {
 		return mv;
 	}
 	
+	@RequestMapping("/opc/new/config")
+	public String newOP(DeployInfo deployInfo) {
+		opConfigService.insert(deployInfo);
+		return "redirect:/opc/index";
+	}
+	
+	@RequestMapping("/opc/update/config")
+	public String updateOP(DeployInfo deployInfo) {
+		opConfigService.update(deployInfo);
+		return "redirect:/opc/detail/" + deployInfo.getUuid();
+	}
+	
 	@RequestMapping("/opc/login")
 	public ModelAndView login(String username, String password) {
 		init();
@@ -89,11 +102,24 @@ public class PageController {
 		return mv;
 	}
 	
+	@RequestMapping("/opc/update/{uuid}")
+	public ModelAndView update(@PathVariable String uuid) {
+		ModelAndView mv = new ModelAndView("deploy/update");
+		mv.addObject("detail", opConfigService.getForObject(uuid));
+		return mv;
+	}
+	
 	@RequestMapping("/opc/detail/{id}")
 	public ModelAndView detail(@PathVariable String id) {
 		ModelAndView mv = new ModelAndView("deploy/detail");
 		mv.addObject("detail", opConfigService.getForObject(id));
 		return mv;
+	}
+	
+	@RequestMapping("/opc/delete/{id}")
+	public String delete(@PathVariable String id) {
+		opConfigService.delete(id);
+		return "redirect:/opc/index";
 	}
 	
 	@RequestMapping("/opc/cmd/{id}")

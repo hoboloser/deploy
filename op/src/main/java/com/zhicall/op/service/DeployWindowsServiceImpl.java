@@ -10,8 +10,8 @@ import com.zhicall.op.entity.DeployInfo;
 import com.zhicall.op.entity.LogFile;
 import com.zhicall.op.enums.BussinessType;
 
-@Service("deploySingleService")
-public class DeploySingleServiceImpl extends AbstractDeployService  implements DeployService {
+@Service("deployWindowsSingleService")
+public class DeployWindowsServiceImpl extends AbstractDeployService  implements DeployService {
 
 	@Override
 	protected String excuteCommand(DeployInfo info, BussinessType type, String... args) {

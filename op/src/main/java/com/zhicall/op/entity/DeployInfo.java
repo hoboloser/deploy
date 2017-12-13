@@ -59,6 +59,8 @@ public class DeployInfo {
     private String javaHomePath;
     
     private String zhicallConfig;
+    
+    private String type;
 
     public String getLogpath() {
 		return logpath;
@@ -186,6 +188,14 @@ public class DeployInfo {
 
 	public void setZhicallConfig(String zhicallConfig) {
 		this.zhicallConfig = zhicallConfig;
+	}
+
+	public String getType() {
+		return type;
+	}
+
+	public void setType(String type) {
+		this.type = type;
 	}
 
 }

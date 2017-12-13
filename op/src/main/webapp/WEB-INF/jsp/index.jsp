@@ -46,6 +46,8 @@
 							<tr>
 								<td>项目名称</td>
 								<td>详情</td>
+								<td>删除</td>
+								<td>更新</td>
 							</tr>
 						</thead>
 						<tbody>
@@ -53,6 +55,8 @@
 								<tr>
 									<td>${item.name}</td>
 									<td><a href="${pageContext.request.contextPath}/opc/detail/${item.uuid}" class="btn waves-effect waves-light red lighten-2">详情</a></td>
+									<td><a href="${pageContext.request.contextPath}/opc/delete/${item.uuid}" class="btn waves-effect waves-light red lighten-2">删除</a></td>
+									<td><a href="${pageContext.request.contextPath}/opc/update/${item.uuid}" class="btn waves-effect waves-light red lighten-2">更新</a></td>
 								</tr>
 							</c:forEach>
 						</tbody>

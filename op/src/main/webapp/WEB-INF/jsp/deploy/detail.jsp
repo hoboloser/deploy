@@ -95,6 +95,7 @@
 						<p>log目录：${detail.logpath}</p>
 						<p>jdk目录：${detail.javaHomePath}</p>
 						<p>zhicall_config目录：${detail.zhicallConfig}</p>
+						<p>服务器类型：${detail.type}</p>
 					</div>
 					<div class="card-action">
 						<p>

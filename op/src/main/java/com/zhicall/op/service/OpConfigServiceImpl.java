@@ -44,5 +44,20 @@ public class OpConfigServiceImpl implements OpConfigService{
 		deployJobMapper.insert(deployJob);
 	}
 
+	@Override
+	public void insert(DeployInfo deployInfo) {
+		deployMapper.insert(deployInfo);
+	}
+
+	@Override
+	public void delete(String id) {
+		deployMapper.delete(id);
+	}
+
+	@Override
+	public void update(DeployInfo deployInfo) {
+		deployMapper.update(deployInfo);
+	}
+
 	
 }

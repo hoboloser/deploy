@@ -32,64 +32,64 @@ public class DeployController {
 	private OpConfigService opConfigService;
 	
 	
-	private DeployService getInstance() {
-		return deployServiceFactory.getServiceInstance();
+	private DeployService getInstance(String uuid) {
+		return deployServiceFactory.getServiceInstance(uuid);
 	}
 	
 	@ResponseBody
 	@RequestMapping(value = "restart", produces = "text/plain;charset=UTF-8", method = RequestMethod.POST)
 	public String ajaxRestart(String uuid) throws IOException {
-		return HtmlUtils.htmlEscape(getInstance().restart(uuid));
+		return HtmlUtils.htmlEscape(getInstance(uuid).restart(uuid));
 	}
 	
 	@ResponseBody
 	@RequestMapping(value = "start", produces = "text/plain;charset=UTF-8", method = RequestMethod.POST)
 	public String ajaxStart(String uuid) throws IOException {
-		return HtmlUtils.htmlEscape(getInstance().start(uuid));
+		return HtmlUtils.htmlEscape(getInstance(uuid).start(uuid));
 	}
 	
 	@ResponseBody
 	@RequestMapping(value = "stop", produces = "text/plain;charset=UTF-8", method = RequestMethod.POST)
 	public String ajaxStop(String uuid) throws IOException {
-		return HtmlUtils.htmlEscape(getInstance().kill(uuid));
+		return HtmlUtils.htmlEscape(getInstance(uuid).kill(uuid));
 	}
 	
 	@ResponseBody
 	@RequestMapping(value = "status", produces = "text/plain;charset=UTF-8", method = RequestMethod.POST)
 	public String ajaxStatus(String uuid) throws IOException {
-		return getInstance().status(uuid);
+		return getInstance(uuid).status(uuid);
 	}
 	
 	@ResponseBody
 	@RequestMapping(value = "deploy", produces = "text/plain;charset=UTF-8", method = RequestMethod.POST)
 	public String ajaxDeploy(String uuid) throws IOException {
-		return HtmlUtils.htmlEscape(getInstance().deploy(uuid));
+		return HtmlUtils.htmlEscape(getInstance(uuid).deploy(uuid));
 	}
 	
 	@ResponseBody
 	@RequestMapping(value = "system/info", produces = "text/plain;charset=UTF-8", method = RequestMethod.POST)
 	public String system(String uuid) throws IOException {
-		return HtmlUtils.htmlEscape(getInstance().systemInfo(uuid));
+		return HtmlUtils.htmlEscape(getInstance(uuid).systemInfo(uuid));
 	}
 	
 	@ResponseBody
 	@RequestMapping(value = "excute/cmd", produces = "text/plain;charset=UTF-8", method = RequestMethod.POST)
 	public String ajaxExcute(String uuid,String cmd, String lastPath) throws IOException {
 		String[] array = cmd.split("\\$");
-		Cmd cmds = getInstance().excute(uuid,array[1],lastPath);
+		Cmd cmds = getInstance(uuid).excute(uuid,array[1],lastPath);
 		return JSON.toJSONString(cmds);
 	}
 	
 	@ResponseBody
 	@RequestMapping(value = "cmd/login", method = RequestMethod.POST)
 	public String cmdLogin(String uuid,String lastPath) throws IOException {
-		Cmd cmds =  getInstance().excute(uuid, null, lastPath);
+		Cmd cmds =  getInstance(uuid).excute(uuid, null, lastPath);
 		return JSON.toJSONString(cmds);
 	}
 	
 	@RequestMapping(value = "show/file/{uuid}", method = RequestMethod.GET)
 	public ModelAndView showlogfile(@PathVariable String uuid) throws IOException {
-		List list = getInstance().showFile(uuid);
+		List list = getInstance(uuid).showFile(uuid);
 		ModelAndView mv = new ModelAndView("deploy/logdetail");
 		mv.addObject("details", list);
 		

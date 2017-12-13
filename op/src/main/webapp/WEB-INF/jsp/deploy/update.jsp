@@ -22,7 +22,7 @@
 		</div>
 	</nav>
 
-	<form id="form-new" method="post" action="${pageContext.request.contextPath}/opc/new/config" style="flex: 1 0 auto;">
+	<form id="form-new" method="post" action="${pageContext.request.contextPath}/opc/update/config" style="flex: 1 0 auto;">
 		<div class="container" style="padding-top: 20px;">
 
 			<div class="row">
@@ -30,61 +30,62 @@
 					<div class="card">
 						<div class="card-content">
 							<span class="card-title black-text">新建项目</span>
+								<input type="hidden" name="uuid" value="${detail.uuid }">
 								<div class="row">
 									<div class="input-field col s12">
-										<input type="text" id="input-name" name="name">
+										<input type="text" id="input-name" name="name" value="${detail.name }">
 										<label for="input-name">项目名称</label>
 									</div>
 									<div class="input-field col s6">
-										<input type="text" id="input-tname" name="tname">
+										<input type="text" id="input-tname" name="tname" value="${detail.tname }">
 										<label for="input-tname">tomcat名字</label>
 									</div>
 									<div class="input-field col s6">
-										<input type="text" id="input-wname" name="wname">
+										<input type="text" id="input-wname" name="wname" value="${detail.wname }">
 										<label for="input-wname">war包名字</label>
 									</div>
 									<div class="input-field col s6">
-										<input type="text" id="input-linux-ip" name="ip">
+										<input type="text" id="input-linux-ip" name="ip" value="${detail.ip }">
 										<label for="input-linux-ip">linux服务器ip</label>
 									</div>
 									<div class="input-field col s6">
-										<input type="text" id="input-linux-account" name="lname">
+										<input type="text" id="input-linux-account" name="lname" value="${detail.lname }">
 										<label for="input-linux-account">linux登录账户</label>
 									</div>
 									<div class="input-field col s6">
-										<input type="text" id="input-password" name="password">
+										<input type="text" id="input-password" name="password" value="${detail.password }">
 										<label for="input-password">password</label>
 									</div>
 									<div class="input-field col s6">
-										<input type="text" id="input-shell" name="sdir">
+										<input type="text" id="input-shell" name="sdir" value="${detail.sdir }">
 										<label for="input-shell">shell脚本目录</label>
 									</div>
 									<div class="input-field col s6">
-										<input type="text" id="input-tomcat" name="tdir">
+										<input type="text" id="input-tomcat" name="tdir" value="${detail.tdir }">
 										<label for="input-tomcat">tomcat根目录</label>
 									</div>
 									<div class="input-field col s6">
-										<input type="text" id="input-bdir" name="bdir">
+										<input type="text" id="input-bdir" name="bdir" value="${detail.bdir }">
 										<label for="input-bdir">备份目录</label>
 									</div>
 									<div class="input-field col s6">
-										<input type="text" id="input-war" name="wdir">
+										<input type="text" id="input-war" name="wdir" value="${detail.wdir }">
 										<label for="input-war">上传war包目录</label>
 									</div>
 									<div class="input-field col s6">
-										<input type="text" id="input-log" name="logpath">
+										<input type="text" id="input-log" name="logpath" value="${detail.logpath }">
 										<label for="input-log">日志目录</label>
 									</div>
 									<div class="input-field col s6">
-										<input type="text" id="input-java_home" name="javaHomePath">
+										<input type="text" id="input-java_home" name="javaHomePath" value="${detail.javaHomePath }">
 										<label for="input-java_home">JAVA_HOME目录</label>
 									</div>
 									<div class="input-field col s6">
-										<input type="text" id="input-zhicall_config" name="zhicallConfig">
+										<input type="text" id="input-zhicall_config" name="zhicallConfig" value="${detail.zhicallConfig }">
 										<label for="input-zhicall_config">ZHICALL_CONFIG目录</label>
 									</div>
 									<div class="input-field col s6">
-										<input type="text" id="input-type" name="type">
+										<input type="text" id="input-type" name="type" value="${detail.type }">
 										<label for="input-type">服务器类型</label>
 									</div>
 								</div>
